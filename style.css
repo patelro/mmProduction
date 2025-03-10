@@ -1,0 +1,459 @@
+html {
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+    /* Prevent horizontal scrolling */
+    scroll-padding-top: 80px;
+}
+
+body {
+    overflow-x: hidden;
+    /* Reinforce no horizontal scrollbar */
+}
+
+.gallery-item {
+    transition: all 0.3s ease-in-out;
+}
+
+.gallery-item:hover {
+    transform: scale(1.05);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.nav-link {
+    position: relative;
+    transition: color 0.3s ease;
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    bottom: -5px;
+    left: 0;
+    background-color: #000;
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+}
+
+.nav-link:hover::after {
+    transform: scaleX(1);
+}
+
+/* Enhanced fade effect for carousel edges */
+#gallery .relative>div.absolute:first-child {
+    background: linear-gradient(to right, white 10%, rgba(255, 255, 255, 0.9) 30%, rgba(255, 255, 255, 0) 100%);
+}
+
+#gallery .relative>div.absolute:last-child {
+    background: linear-gradient(to left, white 10%, rgba(255, 255, 255, 0.9) 30%, rgba(255, 255, 255, 0) 100%);
+}
+
+@keyframes float {
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-20px);
+    }
+}
+
+@keyframes float-slow {
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+@keyframes pulse-slow {
+    0%,
+    100% {
+        opacity: 0.2;
+        transform: scale(1);
+    }
+    50% {
+        opacity: 0.3;
+        transform: scale(1.05);
+    }
+}
+
+@keyframes fade-in {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slide-up {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.animate-float {
+    animation: float 6s ease-in-out infinite;
+}
+
+.animate-float-slow {
+    animation: float-slow 8s ease-in-out infinite;
+}
+
+.animate-pulse-slow {
+    animation: pulse-slow 7s infinite;
+}
+
+.animate-fade-in {
+    animation: fade-in 1.2s ease-out forwards;
+}
+
+.animate-slide-up {
+    animation: slide-up 0.8s ease-out forwards;
+}
+
+/* Animation Keyframes */
+@keyframes spin-slow {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes fade-in-up {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slide-in-left {
+    from {
+        opacity: 0;
+        transform: translateX(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes slide-in-right {
+    from {
+        opacity: 0;
+        transform: translateX(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes reveal {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes bounce-slow {
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-5px);
+    }
+}
+
+/* Animation Classes */
+.animate-float {
+    animation: float 6s ease-in-out infinite;
+}
+
+.animate-float-slow {
+    animation: float-slow 8s ease-in-out infinite;
+}
+
+.animate-spin-slow {
+    animation: spin-slow 20s linear infinite;
+}
+
+.animate-fade-in-up {
+    animation: fade-in-up 0.8s ease-out forwards;
+}
+
+.slide-in-left {
+    animation: slide-in-left 0.8s ease-out forwards;
+}
+
+.slide-in-right {
+    animation: slide-in-right 0.8s ease-out forwards;
+}
+
+.reveal-animation {
+    animation: reveal 1s ease-out forwards;
+}
+
+.animate-bounce-slow {
+    animation: bounce-slow 2s ease-in-out infinite;
+}
+
+/* Loading Animation */
+.calendly-loading {
+    transition: opacity 0.5s;
+    z-index: 1;
+}
+
+.calendly-inline-widget.loaded+.calendly-loading {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.loader {
+    width: 48px;
+    height: 48px;
+    border: 5px solid #e5e7eb;
+    border-bottom-color: #3b82f6;
+    border-radius: 50%;
+    animation: spin-slow 1s linear infinite;
+}
+
+/* Additional Styling Enhancements */
+#schedule {
+    background-image: linear-gradient(to bottom right, rgba(249, 250, 251, 0.8), rgba(255, 255, 255, 0.8));
+    position: relative;
+}
+
+/* Animation for About Section */
+#about {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+}
+
+/* Background animation elements */
+#about::before {
+    content: '';
+    position: absolute;
+    top: -100px;
+    right: -100px;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    background: rgba(59, 130, 246, 0.1);
+    animation: float-slow 15s ease-in-out infinite;
+    z-index: 0;
+}
+
+#about::after {
+    content: '';
+    position: absolute;
+    bottom: -80px;
+    left: -80px;
+    width: 160px;
+    height: 160px;
+    border-radius: 50%;
+    background: rgba(124, 58, 237, 0.1);
+    animation: float 12s ease-in-out infinite;
+    z-index: 0;
+}
+
+/* Enhanced card styling */
+#about .bg-gradient-to-br {
+    position: relative;
+    z-index: 1;
+    transition: transform 0.5s ease, box-shadow 0.5s ease;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    background-size: 200% 200%;
+    animation: gradientShift 15s ease infinite;
+    width: 100%;
+    max-width: 100%;
+}
+
+/* Image container animation */
+#about .md\:order-1 {
+    position: relative;
+    overflow: hidden;
+    transform: translateX(-50px);
+    opacity: 0;
+    animation: slide-in-right 0.8s ease-out forwards;
+    width: 100%;
+}
+
+/* Image styling */
+#about img {
+    transition: transform 0.7s ease;
+    filter: brightness(1);
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+#about img:hover {
+    transform: scale(1.03);
+    filter: brightness(1.05);
+}
+
+/* Text content animation */
+#about .md\:order-2 {
+    transform: translateX(50px);
+    opacity: 0;
+    animation: slide-in-left 0.8s ease-out forwards 0.2s;
+    width: 100%;
+}
+
+/* Heading animation */
+#about h1 {
+    position: relative;
+    display: inline-block;
+    transform: translateY(20px);
+    opacity: 0;
+    animation: fade-in-up 0.6s ease-out forwards 0.4s;
+}
+
+#about h1::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 0;
+    width: 0;
+    height: 3px;
+    background: linear-gradient(90deg, #3B82F6, #93C5FD);
+    animation: expandWidth 1s ease-out forwards 1s;
+}
+
+/* Paragraph animation */
+#about p {
+    transform: translateY(20px);
+    opacity: 0;
+    animation: fade-in-up 0.6s ease-out forwards 0.6s;
+    width: 100%;
+}
+
+/* Button container animation */
+#about .flex.space-x-4 {
+    transform: translateY(20px);
+    opacity: 0;
+    animation: fade-in-up 0.6s ease-out forwards 0.8s;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+/* Responsive adjustments for smaller screens */
+@media (max-width: 640px) {
+    #about .flex.space-x-4 {
+        justify-content: center;
+    }
+
+    #about h1::after {
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    #about h1 {
+        width: 100%;
+        text-align: center;
+    }
+
+    #about p {
+        text-align: center;
+    }
+}
+
+/* Button animations */
+#about a {
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    z-index: 1;
+    white-space: nowrap;
+}
+
+#about a:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 7px 14px rgba(0, 0, 0, 0.1);
+}
+
+#about a::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, rgba(255, 255, 255, 0.1), transparent);
+    transition: left 0.5s ease;
+    z-index: -1;
+}
+
+#about a:hover::before {
+    left: 100%;
+}
+
+/* Animation keyframes */
+@keyframes gradientShift {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+@keyframes expandWidth {
+    from {
+        width: 0;
+    }
+    to {
+        width: 60px;
+    }
+}
+
+/* Add a subtle pulsing circle behind the CTA button */
+#about .flex.space-x-4::before {
+    content: '';
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    background: rgba(59, 130, 246, 0.2);
+    border-radius: 50%;
+    z-index: 0;
+    bottom: -10px;
+    left: 40px;
+    animation: pulse-slow 4s infinite;
+}
+
+/* Ensure animations work on all browsers */
+@supports (-webkit-appearance:none) {
+    #about .md\:order-1,
+    #about .md\:order-2,
+    #about h1,
+    #about p,
+    #about .flex.space-x-4 {
+        will-change: transform, opacity;
+    }
+}
